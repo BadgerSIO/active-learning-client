@@ -8,7 +8,11 @@ module.exports = {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+      colors: {
+        theme: "#0054a5",
+      },
+    },
   },
   plugins: [require("daisyui")],
 };

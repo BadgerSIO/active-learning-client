@@ -27,12 +27,15 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3  shadow bg-white rounded-box w-52 z-50"
             >
-              <li className="hover:bg-black hover:text-white bg-white">
+              <li className="hover:bg-theme hover:text-white bg-white">
                 <NavLink to="/">Courses</NavLink>
               </li>
 
-              <li className="hover:bg-black hover:text-white bg-white">
+              <li className="hover:bg-theme hover:text-white bg-white">
                 <NavLink to="/">FAQ</NavLink>
+              </li>
+              <li className="hover:bg-theme hover:text-white bg-white">
+                <NavLink to="/">Blog</NavLink>
               </li>
             </ul>
           </div>
