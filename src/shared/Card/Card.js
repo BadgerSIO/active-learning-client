@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { CoursesContext } from "../../pages/Home/Home";
+import { FaRegClock, FaUsers, FaStar } from "react-icons/fa";
 
 const Card = ({ course }) => {
   const { courses } = useContext(CoursesContext);
@@ -11,6 +12,8 @@ const Card = ({ course }) => {
     id,
     instructorName,
     price,
+    enrolled,
+    ratings,
     category,
   } = course;
   return (
@@ -23,14 +26,33 @@ const Card = ({ course }) => {
         />
       </figure>
       <div className="card-body bg-white">
+        <p className="text-xs font-semibold text-gray-500">
+          Category: <span className="text-theme capitalize">{category}</span>
+        </p>
         <h2 className="card-title text-base">
           {courseName.length >= 30
             ? courseName.slice(0, 30) + "..."
             : courseName}
         </h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+        <div className="grid grid-cols-3">
+          <div className="flex items-center">
+            <FaRegClock className="inline-block text-base mr-1" />{" "}
+            <span className="inline-block">{duration} H</span>
+          </div>
+          <div className="flex items-center">
+            <FaUsers className="inline-block text-base mr-1" />{" "}
+            <span className="inline-block">{enrolled}</span>
+          </div>
+          <div className="flex items-center">
+            <FaStar className="inline-block text-base mr-1" />{" "}
+            <span className="inline-block">{ratings}/5</span>
+          </div>
+        </div>
+        <p>
+          <small>By: {instructorName}</small>
+        </p>
+        <div className="card-actions justify-start">
+          <h6 className="text-lg font-semibold text-theme">{price}</h6>
         </div>
       </div>
     </div>
