@@ -12,6 +12,11 @@ export const routes = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/"),
         element: <Home></Home>,
       },
+      {
+        path: "/test",
+        loader: () => fetch("http://localhost:5000/"),
+        element: <Home></Home>,
+      },
     ],
   },
 ]);

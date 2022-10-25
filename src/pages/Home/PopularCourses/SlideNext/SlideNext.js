@@ -1,15 +1,22 @@
 import React from "react";
 import { useSwiper } from "swiper/react";
+import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
-const SlideNext = ({ children }) => {
+const SlideNext = () => {
   const swiper = useSwiper();
   return (
-    <div>
+    <div className="flex justify-end absolute top-0 right-0 z-50">
+      <button
+        onClick={() => swiper.slidePrev()}
+        className=" p-3 border border-gray-300 rounded text-gray-500 font-semibold uppercase bg-white hover:bg-theme hover:text-white "
+      >
+        <FaChevronLeft />
+      </button>
       <button
         onClick={() => swiper.slideNext()}
-        className="m-4 py-2 px-3 bg-slate-400 rounded text-white font-semibold uppercase hover:bg-black "
+        className="  ml-4 p-3 border border-gray-300 rounded text-gray-500 font-semibold uppercase bg-white hover:bg-theme hover:text-white "
       >
-        {children}
+        <FaChevronRight />
       </button>
     </div>
   );

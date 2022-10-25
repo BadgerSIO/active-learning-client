@@ -1,9 +1,16 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../logo.svg";
 const Header = () => {
+  let location = useLocation();
+  let currentLocation = location.pathname;
+  console.log(currentLocation);
   return (
-    <nav className="bg-slate-800">
+    <nav
+      className={`min-h-[70px] ${
+        currentLocation === "/" ? "bg-transparent -mb-[120px]" : "bg-gray-900"
+      }`}
+    >
       <div className="navbar bg-base-100 container ">
         <div className="navbar-start z-50">
           <div className="dropdown">
@@ -40,7 +47,7 @@ const Header = () => {
             </ul>
           </div>
           <Link to="/" className="flex items-center  normal-case text-xl">
-            <img src={logo} className="mr-3 h-16" alt="Flowbite Logo" />
+            <img src={logo} className="h-16 -ml-6" alt="active learning" />
           </Link>
         </div>
         <div className="navbar-end hidden lg:flex">

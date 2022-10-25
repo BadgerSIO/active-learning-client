@@ -23,7 +23,11 @@ const Card = ({ course }) => {
         />
       </figure>
       <div className="card-body bg-white">
-        <h2 className="card-title">Shoes!{courses.length}</h2>
+        <h2 className="card-title text-base">
+          {courseName.length >= 30
+            ? courseName.slice(0, 30) + "..."
+            : courseName}
+        </h2>
         <p>If a dog chews shoes whose shoes does he choose?</p>
         <div className="card-actions justify-end">
           <button className="btn btn-primary">Buy Now</button>
