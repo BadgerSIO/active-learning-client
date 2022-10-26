@@ -1,6 +1,4 @@
 import React from "react";
-import { useContext } from "react";
-import { CoursesContext } from "../../pages/Home/Home";
 import {
   FaRegClock,
   FaUsers,
@@ -10,7 +8,6 @@ import {
 import { Link } from "react-router-dom";
 
 const Card = ({ course }) => {
-  const { courses } = useContext(CoursesContext);
   const {
     courseName,
     courseBannerUrl,

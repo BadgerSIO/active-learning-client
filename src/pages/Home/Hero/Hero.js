@@ -12,7 +12,7 @@ const Hero = () => {
             Better World
           </h2>
           <button className="py-3 px-3 font-semibold text-base capitalize rounded  bg-theme hover:bg-black">
-            <Link to="/test">Get Started</Link>
+            <Link to="/courses">Get Started</Link>
             <FaLongArrowAltRight className="inline-block ml-2" />
           </button>
         </div>
