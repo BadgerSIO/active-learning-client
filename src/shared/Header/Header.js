@@ -4,7 +4,6 @@ import logo from "../../logo.svg";
 const Header = () => {
   let location = useLocation();
   let currentLocation = location.pathname;
-  console.log(currentLocation);
   return (
     <nav
       className={`min-h-[70px] ${
@@ -35,7 +34,7 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3  shadow bg-white rounded-box w-52 z-50"
             >
               <li className="hover:bg-theme hover:text-white bg-white">
-                <NavLink to="/">Courses</NavLink>
+                <NavLink to="/courses">Courses</NavLink>
               </li>
 
               <li className="hover:bg-theme hover:text-white bg-white">
@@ -53,7 +52,7 @@ const Header = () => {
         <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             <li className="text-white font-medium uppercase text-sm">
-              <NavLink to="/">Courses</NavLink>
+              <NavLink to="/courses">Courses</NavLink>
             </li>
 
             <li className="text-white font-medium uppercase text-sm">

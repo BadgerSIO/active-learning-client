@@ -14,17 +14,41 @@ const PopularCourses = () => {
   return (
     <div className="py-20">
       <div className="container">
-        <div className="-mb-12">
-          <h1 className="text-3xl font-semibold capitalize">Popular Courses</h1>
-          <h2 className="text-gray-600 text-base capitalize mt-5">
+        <div className="md:-mb-12">
+          <h1 className="text-3xl font-semibold capitalize">
+            <span className="text-theme">Popular</span> Courses
+          </h1>
+          <h2 className="text-gray-500 text-sm capitalize mt-3">
             Limitless learning, more possibilities
           </h2>
         </div>
         <div className="py-3 px-1 relative">
           <Swiper
-            slidesPerView={5}
+            slidesPerView={1}
+            spaceBetween={10}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 40,
+              },
+              1280: {
+                slidesPerView: 4,
+                spaceBetween: 50,
+              },
+              1536: {
+                slidesPerView: 5,
+                spaceBetween: 30,
+              },
+            }}
             loop
-            spaceBetween={30}
             freeMode={true}
             autoplay={{
               delay: 2500,
@@ -38,7 +62,7 @@ const PopularCourses = () => {
           >
             <SlideNext></SlideNext>
             {courses.map((course) => (
-              <SwiperSlide>
+              <SwiperSlide key={course.uid}>
                 <Card key={course.id} course={course}></Card>
               </SwiperSlide>
             ))}

@@ -7,7 +7,6 @@ export const CoursesContext = createContext();
 const Home = () => {
   const courses = useLoaderData();
   const courseinfo = { courses };
-  console.log(courses);
   return (
     <div>
       <Hero></Hero>

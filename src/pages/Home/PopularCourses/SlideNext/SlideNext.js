@@ -5,7 +5,7 @@ import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 const SlideNext = () => {
   const swiper = useSwiper();
   return (
-    <div className="flex justify-end absolute top-0 right-0 z-50">
+    <div className="flex justify-start md:justify-end absolute top-0 md:right-0 z-50">
       <button
         onClick={() => swiper.slidePrev()}
         className=" p-3 border border-gray-300 rounded text-gray-500 font-semibold uppercase bg-white hover:bg-theme hover:text-white "

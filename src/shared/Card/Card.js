@@ -45,11 +45,11 @@ const Card = ({ course }) => {
             <FaRegClock className="inline-block text-base mr-1" />{" "}
             <span className="inline-block">{duration} H</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center place-self-center">
             <FaUsers className="inline-block text-base mr-1" />{" "}
             <span className="inline-block">{enrolled}</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center place-self-end">
             <FaStar className="inline-block text-base mr-1" />{" "}
             <span className="inline-block">{ratings}/5</span>
           </div>
