@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
-import Card from "../../../shared/Card/Card";
-import { DetailsContext } from "../Courses";
+import Card from "../Card/Card";
+import { DetailsContext } from "../../pages/Courses/Courses";
 
 const CourseCards = () => {
   const { cdetails } = useContext(DetailsContext);

@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layouts/Main";
-import CourseCards from "../../pages/Courses/CourseCards/CourseCards";
+import CourseCards from "../../shared/CourseCards/CourseCards";
 import Courses from "../../pages/Courses/Courses";
 import FilteredCourses from "../../pages/Courses/FilteredCourses/FilteredCourses";
 import Home from "../../pages/Home/Home";
+import Details from "../../pages/Details/Details";
 
 export const routes = createBrowserRouter([
   {
@@ -31,10 +32,14 @@ export const routes = createBrowserRouter([
             },
             element: <FilteredCourses></FilteredCourses>,
           },
-          {
-            path: "test2",
-          },
         ],
+      },
+      {
+        path: "/details/:id",
+        loader: async ({ params }) => {
+          return fetch(`http://localhost:5000/details/${params.id}`);
+        },
+        element: <Details></Details>,
       },
     ],
   },

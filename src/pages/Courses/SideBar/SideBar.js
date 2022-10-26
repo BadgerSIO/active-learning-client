@@ -26,7 +26,10 @@ const SideBar = () => {
           </li>
           {categorySide.map((c) => (
             <li key={c}>
-              <button className="capitalize" onClick={handleCat}>
+              <button
+                className="capitalize hover:text-theme"
+                onClick={handleCat}
+              >
                 {c}
               </button>
             </li>

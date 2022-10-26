@@ -5,7 +5,7 @@ import {
   FaStar,
   FaLongArrowAltRight,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Card = ({ course }) => {
   const {
@@ -56,11 +56,12 @@ const Card = ({ course }) => {
         </p>
         <div className="card-actions justify-between items-end">
           <h6 className="text-lg font-semibold text-theme">{price}</h6>
-          <button className="text-xs capitalize p-3 bg-theme text-white rounded hover:bg-gray-900">
-            <Link>
-              Show Details <FaLongArrowAltRight className="inline-block ml-1" />
-            </Link>
-          </button>
+          <Link
+            className="text-xs capitalize p-3 bg-theme text-white rounded hover:bg-gray-900"
+            to={`/details/${id}`}
+          >
+            Show Details <FaLongArrowAltRight className="inline-block ml-1" />
+          </Link>
         </div>
       </div>
     </div>
