@@ -12,10 +12,10 @@ import SlideNext from "./SlideNext/SlideNext";
 const PopularCourses = () => {
   const { courses } = useContext(CoursesContext);
   return (
-    <div className="py-20">
+    <div className="py-20 dark:bg-darkBg">
       <div className="container">
         <div className="md:-mb-12">
-          <h1 className="text-3xl font-semibold capitalize">
+          <h1 className="text-3xl font-semibold capitalize dark:text-white">
             <span className="text-theme">Popular</span> Courses
           </h1>
           <h2 className="text-gray-500 text-sm capitalize mt-3">

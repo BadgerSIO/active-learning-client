@@ -5,6 +5,7 @@ import Courses from "../../pages/Courses/Courses";
 import FilteredCourses from "../../pages/Courses/FilteredCourses/FilteredCourses";
 import Home from "../../pages/Home/Home";
 import Details from "../../pages/Details/Details";
+import Checkout from "../../pages/Checkout/Checkout";
 
 export const routes = createBrowserRouter([
   {
@@ -40,6 +41,13 @@ export const routes = createBrowserRouter([
           return fetch(`http://localhost:5000/details/${params.id}`);
         },
         element: <Details></Details>,
+      },
+      {
+        path: "/checkout/:courseID",
+        loader: async ({ params }) => {
+          return fetch(`http://localhost:5000/checkout/${params.courseID}`);
+        },
+        element: <Checkout></Checkout>,
       },
     ],
   },

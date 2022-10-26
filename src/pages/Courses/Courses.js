@@ -7,13 +7,15 @@ const Courses = () => {
   const cdetails = useLoaderData();
   const info = { cdetails };
   return (
-    <div className="container py-10">
-      <DetailsContext.Provider value={info}>
-        <div className="grid grid-cols-4 gap-10">
-          <SideBar></SideBar>
-          <Outlet></Outlet>
-        </div>
-      </DetailsContext.Provider>
+    <div className="py-10 dark:bg-darkBg min-h-[91.5vh]">
+      <div className="container">
+        <DetailsContext.Provider value={info}>
+          <div className="grid grid-cols-4 gap-10">
+            <SideBar></SideBar>
+            <Outlet></Outlet>
+          </div>
+        </DetailsContext.Provider>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import React from "react";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../logo.svg";
-const Header = () => {
+const Header = ({ handleDarkmode, mode }) => {
   let location = useLocation();
   let currentLocation = location.pathname;
   return (
@@ -60,6 +61,16 @@ const Header = () => {
             </li>
             <li className="text-white font-medium uppercase text-sm">
               <NavLink to="/">Blog</NavLink>
+            </li>
+            <li>
+              <button onClick={handleDarkmode}>
+                {" "}
+                {mode ? (
+                  <FaSun className="text-white" />
+                ) : (
+                  <FaMoon className="text-white" />
+                )}
+              </button>
             </li>
           </ul>
         </div>

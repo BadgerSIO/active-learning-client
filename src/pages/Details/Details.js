@@ -12,7 +12,6 @@ import {
 import { SiSpeedtest } from "react-icons/si";
 const Details = () => {
   const details = useLoaderData();
-  console.log(details);
   const {
     courseName,
     courseBannerUrl,
@@ -79,12 +78,15 @@ const Details = () => {
               <h6 className="text-xl  mb-5 font-semibold">Course Overview</h6>
               <ul className="list-disc list-inside space-y-5">
                 {overview.map((s) => (
-                  <li>{s}</li>
+                  <li key={s}>{s}</li>
                 ))}
               </ul>
               <div className="flex items-end">
                 <div className="flex-1">
-                  <Link className="mt-5 p-3 bg-theme inline-block text-white rounded hover:bg-slate-900">
+                  <Link
+                    to={`/checkout/${id}`}
+                    className="mt-5 p-3 bg-theme inline-block text-white rounded hover:bg-slate-900"
+                  >
                     <FaCrown className="inline-block mr-1 -mt-1 text-yellow-400 text-xl" />{" "}
                     Get Premium Access
                   </Link>

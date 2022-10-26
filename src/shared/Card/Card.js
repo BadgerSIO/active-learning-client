@@ -20,7 +20,7 @@ const Card = ({ course }) => {
     category,
   } = course;
   return (
-    <div className="card card-compact w-full bg-base-100 border border-gray-300 rounded ">
+    <div className="card card-compact w-full bg-base-100 border border-gray-300 rounded dark:border-0 ">
       <figure>
         <img
           src={courseBannerUrl}
@@ -28,11 +28,11 @@ const Card = ({ course }) => {
           className="h-48 object-cover w-full"
         />
       </figure>
-      <div className="card-body bg-white">
+      <div className="card-body bg-white dark:bg-darkCardBg dark:text-white">
         <p className="text-xs font-semibold text-gray-500">
           Category: <span className="text-theme capitalize">{category}</span>
         </p>
-        <h2 className="card-title text-base">
+        <h2 className="card-title text-base ">
           {courseName.length >= 40
             ? courseName.slice(0, 40) + "..."
             : courseName}
