@@ -8,6 +8,7 @@ import Details from "../../pages/Details/Details";
 import Checkout from "../../pages/Checkout/Checkout";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
+import PrivateRoute from "../PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -57,7 +58,11 @@ export const routes = createBrowserRouter([
         loader: async ({ params }) => {
           return fetch(`http://localhost:5000/checkout/${params.courseID}`);
         },
-        element: <Checkout></Checkout>,
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        ),
       },
     ],
   },

@@ -1,13 +1,18 @@
 import React from "react";
 import { useContext } from "react";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FaMoon, FaSun, FaUser } from "react-icons/fa";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import logo from "../../logo.svg";
 const Header = ({ handleDarkmode, mode }) => {
   let location = useLocation();
   let currentLocation = location.pathname;
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+  const handleLogout = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   return (
     <nav
       className={`min-h-[7vh] ${
@@ -77,13 +82,27 @@ const Header = ({ handleDarkmode, mode }) => {
             </li>
             {user ? (
               <>
-                <li className="text-white font-medium uppercase text-sm items-center">
-                  <img
-                    src={user?.photoURL}
-                    alt={user?.displayName}
-                    className="h-16  rounded-full"
-                  />
-                  <span>{user?.displayName}</span>
+                <li
+                  className="text-theme font-bold uppercase text-xs  items-center tooltip tooltip-bottom"
+                  data-tip={`${user.displayName}`}
+                >
+                  {user?.photoURL ? (
+                    <>
+                      <img
+                        src={user?.photoURL}
+                        alt={user?.displayName}
+                        className="h-16  rounded-full "
+                      />
+                    </>
+                  ) : (
+                    <FaUser />
+                  )}
+                </li>
+                <li
+                  onClick={handleLogout}
+                  className="text-white font-medium uppercase text-sm"
+                >
+                  <button className="uppercase">logout</button>
                 </li>
               </>
             ) : (

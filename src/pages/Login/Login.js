@@ -1,14 +1,31 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React from "react";
+import { useContext } from "react";
 import { FaGithub, FaGoogle, FaPaperPlane } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
+  const { googleSignIn } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+  };
+  const handleGoogle = () => {
+    googleSignIn(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log("error", error));
   };
   return (
     <div className="min-h-[91.5vh] dark:bg-darkBg flex justify-center items-center">
@@ -45,7 +62,10 @@ const Login = () => {
             </p>
             <h6 className="text-center ">OR</h6>
             <div className="flex mt-5">
-              <button className="bg-slate-900 flex-1 text-white p-3 hover:bg-theme mr-1">
+              <button
+                onClick={handleGoogle}
+                className="bg-slate-900 flex-1 text-white p-3 hover:bg-theme mr-1"
+              >
                 <FaGoogle className="inline text-lg mr-2"></FaGoogle> Sign in
                 with Google
               </button>
