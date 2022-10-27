@@ -1,14 +1,19 @@
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React from "react";
 import { useContext } from "react";
 import { FaGithub, FaGoogle, FaPaperPlane } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Register = () => {
-  const { googleSignIn, createuser, updateUser } = useContext(AuthContext);
+  const { googleSignIn, gitHubSignIn, createuser, updateUser } =
+    useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate();
+
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -39,6 +44,17 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log("error", error));
+  };
+  //git hub sign in
+  const handleGitHub = () => {
+    gitHubSignIn(githubProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log("error", error));
   };
@@ -101,7 +117,10 @@ const Register = () => {
                 <FaGoogle className="inline text-lg mr-2"></FaGoogle> Sign in
                 with Google
               </button>
-              <button className="bg-slate-900 flex-1 text-white p-3 hover:bg-theme ml-1">
+              <button
+                onClick={handleGitHub}
+                className="bg-slate-900 flex-1 text-white p-3 hover:bg-theme ml-1"
+              >
                 <FaGithub className="inline text-lg mr-2"></FaGithub> Sign in
                 with GitHub
               </button>

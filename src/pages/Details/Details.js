@@ -10,6 +10,8 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { SiSpeedtest } from "react-icons/si";
+import Pdf from "react-to-pdf";
+const ref = React.createRef();
 const Details = () => {
   const details = useLoaderData();
   const {
@@ -29,7 +31,14 @@ const Details = () => {
     overview,
   } = details;
   return (
-    <div className="py-10">
+    <div ref={ref} className="pb-10">
+      <div className="bg-theme py-10">
+        <div className="container">
+          <h1 className="text-2xl text-white font-semibold uppercase">
+            Course Details
+          </h1>
+        </div>
+      </div>
       <div className="container">
         <div className="grid grid-cols-4 pt-10 gap-10">
           <div className="col-span-3">
@@ -59,10 +68,17 @@ const Details = () => {
                 </div>
               </div>
               <div className="justify-self-end">
-                <button className="p-3 bg-theme rounded text-white text-xl hover:bg-slate-900 ">
-                  <FaDownload className="inline-block text-xl mr-3 -mt-1" />
-                  <span>Download Pdf</span>
-                </button>
+                <Pdf targetRef={ref} zoom="0" filename="code-example.pdf">
+                  {({ toPdf }) => (
+                    <button
+                      onClick={toPdf}
+                      className="p-3 bg-theme rounded text-white text-xl hover:bg-slate-900 "
+                    >
+                      <FaDownload className="inline-block text-xl mr-3 -mt-1" />
+                      <span>Download Pdf</span>
+                    </button>
+                  )}
+                </Pdf>
               </div>
             </div>
             <h1 className="text-5xl leading-snug font-semibold text-slate-900 mt-5 pt-5 border-t-2">
