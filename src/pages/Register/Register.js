@@ -2,18 +2,37 @@ import { GoogleAuthProvider } from "firebase/auth";
 import React from "react";
 import { useContext } from "react";
 import { FaGithub, FaGoogle, FaPaperPlane } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Register = () => {
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, createuser, updateUser } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
+  const navigate = useNavigate();
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    const username = form.name.value;
+    const userphotourl = form.photourl.value;
+    console.log(email, password, username, userphotourl);
+    createuser(email, password)
+      .then((result) => {
+        handleUpdatingUserProfile(username, userphotourl);
+      })
+      .catch((error) => console.log(error));
+  };
+  const handleUpdatingUserProfile = (username, userphotourl) => {
+    const profile = {
+      displayName: username,
+      photoURL: userphotourl,
+    };
+    updateUser(profile)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
   };
   const handleGoogle = () => {
     googleSignIn(googleProvider)
@@ -33,16 +52,30 @@ const Register = () => {
           >
             <h1 className="text-2xl font-semibold mb-5">Register</h1>
             <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              className="w-full placeholder:text-gray-900 mb-5 p-2 border border-gray-300"
+            />
+            <input
+              type="text"
+              name="photourl"
+              placeholder="Enter Photo URL"
+              className="w-full placeholder:text-gray-900 mb-5 p-2 border border-gray-300"
+            />
+            <input
               type="email"
               name="email"
               placeholder="Your Email"
-              className="w-full placeholder:text-gray-900 p-2 border border-gray-300"
+              className="w-full placeholder:text-gray-900 mb-5 p-2 border border-gray-300"
+              required
             />
             <input
               type="password"
               name="password"
               placeholder="Password"
-              className="w-full mt-7 placeholder:text-gray-900 p-2  border border-gray-300"
+              className="w-full placeholder:text-gray-900 mb-5 p-2  border border-gray-300"
+              required
             />
             <button
               type="submit"

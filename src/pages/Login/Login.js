@@ -6,7 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, loginUser } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
   const location = useLocation();
@@ -17,6 +17,12 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    loginUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error));
   };
   const handleGoogle = () => {
     googleSignIn(googleProvider)
