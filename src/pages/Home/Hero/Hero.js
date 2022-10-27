@@ -5,10 +5,10 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 const Hero = () => {
   return (
     <div className="hero min-h-[70vh]">
-      <div className="container min-h-[70vh] flex items-center ">
+      <div className="container min-h-[70vh] flex items-center px-2">
         <div className="text-white">
           <h1 className="text-lg capitalize">Better Education for a</h1>
-          <h2 className="text-6xl uppercase font-bold mt-3 mb-10">
+          <h2 className="text-4xl md:text-6xl uppercase font-bold mt-3 mb-10">
             Better World
           </h2>
           <Link

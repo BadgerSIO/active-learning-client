@@ -58,7 +58,7 @@ const Login = () => {
         <div className="flex justify-center">
           <form
             onSubmit={handleFormSubmit}
-            className="w-[550px]  p-10 border border-gray-300 dark:bg-darkCardBg rounded"
+            className="w-full lg:w-[550px]  p-10 border border-gray-300 dark:bg-darkCardBg rounded"
           >
             <h1 className="text-2xl font-semibold mb-5">Login</h1>
             <input
@@ -89,17 +89,17 @@ const Login = () => {
               </small>
             </p>
             <h6 className="text-center ">OR</h6>
-            <div className="flex mt-5">
+            <div className="md:flex mt-5">
               <button
                 onClick={handleGoogle}
-                className="bg-slate-900 flex-1 text-white p-3 hover:bg-theme mr-1"
+                className="bg-slate-900 w-full  flex-1 text-white p-3 hover:bg-theme mb-4 md:mb-0 md:mr-1"
               >
                 <FaGoogle className="inline text-lg mr-2"></FaGoogle> Sign in
                 with Google
               </button>
               <button
                 onClick={handleGitHub}
-                className="bg-slate-900 flex-1 text-white p-3 hover:bg-theme ml-1"
+                className="bg-slate-900 w-full  flex-1 text-white p-3 hover:bg-theme md:ml-1"
               >
                 <FaGithub className="inline text-lg mr-2"></FaGithub> Sign in
                 with GitHub

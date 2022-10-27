@@ -47,10 +47,20 @@ const Header = ({ handleDarkmode, mode }) => {
               </li>
 
               <li className="hover:bg-theme hover:text-white bg-white">
-                <NavLink to="/">FAQ</NavLink>
+                <NavLink to="/faq">FAQ</NavLink>
               </li>
               <li className="hover:bg-theme hover:text-white bg-white">
-                <NavLink to="/">Blog</NavLink>
+                <NavLink to="/blog">Blog</NavLink>
+              </li>
+              <li>
+                <button onClick={handleDarkmode}>
+                  {" "}
+                  {mode ? (
+                    <FaSun className="text-white" />
+                  ) : (
+                    <FaMoon className="text-white" />
+                  )}
+                </button>
               </li>
             </ul>
           </div>
@@ -109,6 +119,52 @@ const Header = ({ handleDarkmode, mode }) => {
               </>
             ) : (
               <li className="text-white font-medium uppercase text-sm">
+                <NavLink to="/login">Login</NavLink>
+              </li>
+            )}
+          </ul>
+        </div>
+        <div className="navbar-end lg:hidden flex">
+          <ul className="menu menu-horizontal p-0 space-x-0">
+            <li>
+              <button onClick={handleDarkmode}>
+                {" "}
+                {mode ? (
+                  <FaSun className="text-white" />
+                ) : (
+                  <FaMoon className="text-white" />
+                )}
+              </button>
+            </li>
+            {user ? (
+              <>
+                <li
+                  className="text-theme font-bold uppercase text-xs  items-center tooltip tooltip-bottom"
+                  data-tip={`${user.displayName}`}
+                >
+                  {user?.photoURL ? (
+                    <>
+                      <Link>
+                        <img
+                          src={user?.photoURL}
+                          alt={user?.displayName}
+                          className="w-10 h-10 object-cover border rounded-full "
+                        />
+                      </Link>
+                    </>
+                  ) : (
+                    <FaUser />
+                  )}
+                </li>
+                <li
+                  onClick={handleLogout}
+                  className="text-white font-medium uppercase text-sm"
+                >
+                  <button className="uppercase">logout</button>
+                </li>
+              </>
+            ) : (
+              <li className="text-white font-medium uppercase md:text-sm text-xs">
                 <NavLink to="/login">Login</NavLink>
               </li>
             )}

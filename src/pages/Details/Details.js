@@ -46,10 +46,10 @@ const Details = () => {
         </div>
       </div>
       <div className="container">
-        <div className="grid grid-cols-4 pt-10 gap-10">
+        <div className="grid xl:grid-cols-4 pt-10 gap-10">
           <div className="col-span-3">
-            <div className="grid grid-cols-3">
-              <div className="flex">
+            <div className="grid md:grid-cols-3 ">
+              <div className="flex mb-3 md:mb-0">
                 <div>
                   <FaRegBookmark className="inline-block text-4xl text-theme" />
                 </div>
@@ -58,7 +58,7 @@ const Details = () => {
                   <h2 className="text-lg capitalize">{category}</h2>
                 </div>
               </div>
-              <div className="flex justify-self-center">
+              <div className="flex md:justify-self-center mb-3 md:mb-0">
                 <div>
                   <img
                     src={instructorImage}
@@ -73,7 +73,7 @@ const Details = () => {
                   <h2 className="text-lg capitalize">{instructorName}</h2>
                 </div>
               </div>
-              <div className="justify-self-end">
+              <div className="md:justify-self-end mb-3 md:mb-0">
                 <Pdf
                   targetRef={ref}
                   zoom="0"
@@ -92,7 +92,7 @@ const Details = () => {
                 </Pdf>
               </div>
             </div>
-            <h1 className="text-5xl leading-snug font-semibold text-slate-900 dark:text-white mt-5 pt-5 border-t-2 dark:border-t-darkBorder">
+            <h1 className="text-3xl lg:text-5xl leading-snug font-semibold text-slate-900 dark:text-white mt-5 pt-5 border-t-2 dark:border-t-darkBorder">
               {courseName}
             </h1>
             <h2 className="py-5 text-xl text-gray-600 dark:text-gray-400">
@@ -110,7 +110,7 @@ const Details = () => {
                   <li key={s}>{s}</li>
                 ))}
               </ul>
-              <div className="flex items-end">
+              <div className="md:flex md:items-end">
                 <div className="flex-1">
                   <Link
                     to={`/checkout/${id}`}
@@ -120,11 +120,13 @@ const Details = () => {
                     Get Premium Access
                   </Link>
                 </div>
-                <h5 className="flex-1 text-end text-2xl">Price: {price}</h5>
+                <h5 className="flex-1 mt-3 md:mt-0 md:text-end text-2xl">
+                  Price: {price}
+                </h5>
               </div>
             </div>
           </div>
-          <div>
+          <div className="col-span-1">
             <div className="bg-white dark:bg-darkCardBg  border border-gray-300 dark:border-darkBorder rounded-md p-5 sticky top-5">
               <ul className="space-y-10">
                 <li className="text-lg">

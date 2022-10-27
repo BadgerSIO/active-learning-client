@@ -13,7 +13,7 @@ const PopularCourses = () => {
   const { courses } = useContext(CoursesContext);
   return (
     <div className="py-20 dark:bg-darkBg">
-      <div className="container">
+      <div className="container px-2">
         <div className="md:-mb-12">
           <h1 className="text-3xl font-semibold capitalize dark:text-white">
             <span className="text-theme">Popular</span> Courses

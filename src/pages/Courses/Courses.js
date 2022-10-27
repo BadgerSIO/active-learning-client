@@ -10,7 +10,7 @@ const Courses = () => {
     <div className="py-10 dark:bg-darkBg min-h-[91.5vh]">
       <div className="container">
         <DetailsContext.Provider value={info}>
-          <div className="grid grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-4 lg:gap-10">
             <SideBar></SideBar>
             <Outlet></Outlet>
           </div>

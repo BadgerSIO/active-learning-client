@@ -6,7 +6,7 @@ const FilteredCourses = () => {
   const courses = useLoaderData();
   return (
     <div className="col-span-3 w-full">
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {courses.map((course) => (
           <Card key={course.id} course={course}></Card>
         ))}

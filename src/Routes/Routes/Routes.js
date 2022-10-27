@@ -10,6 +10,7 @@ import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import PrivateRoute from "../PrivateRoute";
 import Blog from "../../pages/Blog/Blog";
+import Faq from "../../pages/Faq/Faq";
 
 export const routes = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ export const routes = createBrowserRouter([
         path: "/blog",
         element: <Blog></Blog>,
       },
+      {
+        path: "/faq",
+        element: <Faq></Faq>,
+      },
+
       {
         path: "/courses",
         loader: () =>
