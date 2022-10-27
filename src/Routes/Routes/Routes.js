@@ -9,6 +9,7 @@ import Checkout from "../../pages/Checkout/Checkout";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import PrivateRoute from "../PrivateRoute";
+import Blog from "../../pages/Blog/Blog";
 
 export const routes = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader: () => fetch("http://localhost:5000/"),
+        loader: () => fetch("https://active-learning-server.vercel.app/"),
         element: <Home></Home>,
       },
       {
@@ -29,8 +30,13 @@ export const routes = createBrowserRouter([
         element: <Register></Register>,
       },
       {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
         path: "/courses",
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () =>
+          fetch("https://active-learning-server.vercel.app/courses"),
         element: <Courses></Courses>,
         children: [
           {
@@ -40,7 +46,9 @@ export const routes = createBrowserRouter([
           {
             path: ":value",
             loader: async ({ params }) => {
-              return fetch(`http://localhost:5000/courses/${params.value}`);
+              return fetch(
+                `https://active-learning-server.vercel.app/courses/${params.value}`
+              );
             },
             element: <FilteredCourses></FilteredCourses>,
           },
@@ -49,14 +57,18 @@ export const routes = createBrowserRouter([
       {
         path: "/details/:id",
         loader: async ({ params }) => {
-          return fetch(`http://localhost:5000/details/${params.id}`);
+          return fetch(
+            `https://active-learning-server.vercel.app/details/${params.id}`
+          );
         },
         element: <Details></Details>,
       },
       {
         path: "/checkout/:courseID",
         loader: async ({ params }) => {
-          return fetch(`http://localhost:5000/checkout/${params.courseID}`);
+          return fetch(
+            `https://active-learning-server.vercel.app/checkout/${params.courseID}`
+          );
         },
         element: (
           <PrivateRoute>

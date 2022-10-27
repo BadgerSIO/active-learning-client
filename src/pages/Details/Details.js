@@ -38,7 +38,7 @@ const Details = () => {
   } = details;
   return (
     <div ref={ref} className="pb-10 dark:bg-darkBg dark:text-darkText">
-      <div className="bg-theme py-10">
+      <div className="bg-darkCardBg py-10">
         <div className="container">
           <h1 className="text-2xl text-white font-semibold uppercase">
             Course Details

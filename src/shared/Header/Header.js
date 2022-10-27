@@ -68,7 +68,7 @@ const Header = ({ handleDarkmode, mode }) => {
               <NavLink to="/">FAQ</NavLink>
             </li>
             <li className="text-white font-medium uppercase text-sm">
-              <NavLink to="/">Blog</NavLink>
+              <NavLink to="/blog">Blog</NavLink>
             </li>
             <li>
               <button onClick={handleDarkmode}>
