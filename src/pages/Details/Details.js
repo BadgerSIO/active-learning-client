@@ -12,6 +12,12 @@ import {
 import { SiSpeedtest } from "react-icons/si";
 import Pdf from "react-to-pdf";
 const ref = React.createRef();
+const options = {
+  orientation: "landscape",
+  unit: "px",
+  format: [1920, 1280],
+};
+options.hotfixes = ["px_scaling"];
 const Details = () => {
   const details = useLoaderData();
   const {
@@ -31,7 +37,7 @@ const Details = () => {
     overview,
   } = details;
   return (
-    <div ref={ref} className="pb-10">
+    <div ref={ref} className="pb-10 dark:bg-darkBg dark:text-white">
       <div className="bg-theme py-10">
         <div className="container">
           <h1 className="text-2xl text-white font-semibold uppercase">
@@ -68,7 +74,12 @@ const Details = () => {
                 </div>
               </div>
               <div className="justify-self-end">
-                <Pdf targetRef={ref} zoom="0" filename="code-example.pdf">
+                <Pdf
+                  targetRef={ref}
+                  zoom="0"
+                  options={options}
+                  filename={`${courseName}.pdf`}
+                >
                   {({ toPdf }) => (
                     <button
                       onClick={toPdf}
@@ -81,10 +92,12 @@ const Details = () => {
                 </Pdf>
               </div>
             </div>
-            <h1 className="text-5xl leading-snug font-semibold text-slate-900 mt-5 pt-5 border-t-2">
+            <h1 className="text-5xl leading-snug font-semibold text-slate-900 dark:text-white mt-5 pt-5 border-t-2">
               {courseName}
             </h1>
-            <h2 className="py-5 text-xl text-gray-600">{descripton}</h2>
+            <h2 className="py-5 text-xl text-gray-600 dark:text-gray-400">
+              {descripton}
+            </h2>
             <img
               src={courseBannerUrl}
               className="w-full h-96 object-cover bg-center border-4 border-slate-200"
@@ -112,7 +125,7 @@ const Details = () => {
             </div>
           </div>
           <div>
-            <div className="bg-white border border-gray-300 rounded-md p-5 sticky top-5">
+            <div className="bg-white dark:bg-darkCardBg  border border-gray-300 rounded-md p-5 sticky top-5">
               <ul className="space-y-10">
                 <li className="text-lg">
                   <FaUsers className="inline text-4xl mr-2 text-theme" />{" "}
