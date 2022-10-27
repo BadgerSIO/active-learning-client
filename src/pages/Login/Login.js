@@ -1,13 +1,16 @@
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { FaGithub, FaGoogle, FaPaperPlane } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
-  const { googleSignIn, loginUser } = useContext(AuthContext);
+  const [errors, setErrors] = useState("");
+  const { googleSignIn, gitHubSignIn, loginUser } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -20,12 +23,28 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         console.log(result.user);
+        form.reset();
+        setErrors("");
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setErrors(error.message);
+        console.log(error);
+      });
   };
   const handleGoogle = () => {
     googleSignIn(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  //git hub sign in
+  const handleGitHub = () => {
+    gitHubSignIn(githubProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -54,6 +73,9 @@ const Login = () => {
               placeholder="Password"
               className="w-full mt-7 placeholder:text-gray-900 p-2  border border-gray-300"
             />
+            <p className="text-red-500">
+              <small>{errors}</small>
+            </p>
             <button className="bg-slate-900 w-full text-white p-3 hover:bg-theme my-5 ">
               <FaPaperPlane className="inline text-lg mr-2"></FaPaperPlane>{" "}
               Submit
@@ -75,7 +97,10 @@ const Login = () => {
                 <FaGoogle className="inline text-lg mr-2"></FaGoogle> Sign in
                 with Google
               </button>
-              <button className="bg-slate-900 flex-1 text-white p-3 hover:bg-theme ml-1">
+              <button
+                onClick={handleGitHub}
+                className="bg-slate-900 flex-1 text-white p-3 hover:bg-theme ml-1"
+              >
                 <FaGithub className="inline text-lg mr-2"></FaGithub> Sign in
                 with GitHub
               </button>

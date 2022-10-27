@@ -88,11 +88,13 @@ const Header = ({ handleDarkmode, mode }) => {
                 >
                   {user?.photoURL ? (
                     <>
-                      <img
-                        src={user?.photoURL}
-                        alt={user?.displayName}
-                        className="h-16  rounded-full "
-                      />
+                      <Link>
+                        <img
+                          src={user?.photoURL}
+                          alt={user?.displayName}
+                          className="w-10 h-10 object-cover border rounded-full "
+                        />
+                      </Link>
                     </>
                   ) : (
                     <FaUser />
