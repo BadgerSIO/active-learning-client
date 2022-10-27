@@ -1,14 +1,17 @@
 import React from "react";
+import { useContext } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 import logo from "../../logo.svg";
 const Header = ({ handleDarkmode, mode }) => {
   let location = useLocation();
   let currentLocation = location.pathname;
+  const { user } = useContext(AuthContext);
   return (
     <nav
-      className={`min-h-[70px] ${
-        currentLocation === "/" ? "bg-transparent -mb-[120px]" : "bg-gray-900"
+      className={`min-h-[7vh] ${
+        currentLocation === "/" ? "bg-transparent -mb-[15vh]" : "bg-gray-900"
       }`}
     >
       <div className="navbar bg-base-100 container ">
@@ -72,6 +75,22 @@ const Header = ({ handleDarkmode, mode }) => {
                 )}
               </button>
             </li>
+            {user ? (
+              <>
+                <li className="text-white font-medium uppercase text-sm items-center">
+                  <img
+                    src={user?.photoURL}
+                    alt={user?.displayName}
+                    className="h-16  rounded-full"
+                  />
+                  <span>{user?.displayName}</span>
+                </li>
+              </>
+            ) : (
+              <li className="text-white font-medium uppercase text-sm">
+                <NavLink to="/login">Login</NavLink>
+              </li>
+            )}
           </ul>
         </div>
       </div>
