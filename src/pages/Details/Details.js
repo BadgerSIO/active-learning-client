@@ -37,7 +37,7 @@ const Details = () => {
     overview,
   } = details;
   return (
-    <div ref={ref} className="pb-10 dark:bg-darkBg dark:text-white">
+    <div ref={ref} className="pb-10 dark:bg-darkBg dark:text-darkText">
       <div className="bg-theme py-10">
         <div className="container">
           <h1 className="text-2xl text-white font-semibold uppercase">
@@ -92,7 +92,7 @@ const Details = () => {
                 </Pdf>
               </div>
             </div>
-            <h1 className="text-5xl leading-snug font-semibold text-slate-900 dark:text-white mt-5 pt-5 border-t-2">
+            <h1 className="text-5xl leading-snug font-semibold text-slate-900 dark:text-white mt-5 pt-5 border-t-2 dark:border-t-darkBorder">
               {courseName}
             </h1>
             <h2 className="py-5 text-xl text-gray-600 dark:text-gray-400">
@@ -100,7 +100,7 @@ const Details = () => {
             </h2>
             <img
               src={courseBannerUrl}
-              className="w-full h-96 object-cover bg-center border-4 border-slate-200"
+              className="w-full h-96 object-cover bg-center border-4 border-slate-200 dark:border-darkBorder"
               alt={courseName}
             />
             <div className="p-5 border border-gray-300 rounded-lg mt-8">
@@ -125,7 +125,7 @@ const Details = () => {
             </div>
           </div>
           <div>
-            <div className="bg-white dark:bg-darkCardBg  border border-gray-300 rounded-md p-5 sticky top-5">
+            <div className="bg-white dark:bg-darkCardBg  border border-gray-300 dark:border-darkBorder rounded-md p-5 sticky top-5">
               <ul className="space-y-10">
                 <li className="text-lg">
                   <FaUsers className="inline text-4xl mr-2 text-theme" />{" "}

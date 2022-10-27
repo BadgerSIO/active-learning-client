@@ -8,13 +8,13 @@ const SlideNext = () => {
     <div className="flex justify-start md:justify-end absolute top-0 md:right-0 z-50">
       <button
         onClick={() => swiper.slidePrev()}
-        className=" p-3 border border-gray-300 rounded text-gray-500 font-semibold uppercase bg-white hover:bg-theme hover:text-white "
+        className=" p-3 border border-gray-300 rounded text-gray-500 font-semibold uppercase bg-white dark:bg-darkCardBg dark:border-darkBorder hover:bg-theme hover:text-white "
       >
         <FaChevronLeft />
       </button>
       <button
         onClick={() => swiper.slideNext()}
-        className="  ml-4 p-3 border border-gray-300 rounded text-gray-500 font-semibold uppercase bg-white hover:bg-theme hover:text-white "
+        className="  ml-4 p-3 border border-gray-300 rounded text-gray-500 font-semibold uppercase bg-white dark:bg-darkCardBg dark:border-darkBorder hover:bg-theme hover:text-white "
       >
         <FaChevronRight />
       </button>

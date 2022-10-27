@@ -20,7 +20,7 @@ const Card = ({ course }) => {
     category,
   } = course;
   return (
-    <div className="card card-compact w-full bg-base-100 border border-gray-300 rounded dark:border-0 ">
+    <div className="card card-compact w-full bg-base-100 border border-gray-300 rounded dark:border-darkBorder ">
       <figure>
         <img
           src={courseBannerUrl}
@@ -32,12 +32,12 @@ const Card = ({ course }) => {
         <p className="text-xs font-semibold text-gray-500">
           Category: <span className="text-theme capitalize">{category}</span>
         </p>
-        <h2 className="card-title text-base ">
+        <h2 className="card-title text-base dark:text-darkText ">
           {courseName.length >= 40
             ? courseName.slice(0, 40) + "..."
             : courseName}
         </h2>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 dark:text-darkText">
           <div className="flex items-center">
             <FaRegClock className="inline-block text-base mr-1" />{" "}
             <span className="inline-block">{duration} H</span>

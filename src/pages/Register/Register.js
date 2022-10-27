@@ -59,38 +59,38 @@ const Register = () => {
       .catch((error) => console.log("error", error));
   };
   return (
-    <div className="min-h-[91.5vh] dark:bg-darkBg flex justify-center items-center">
+    <div className="min-h-[91.5vh] dark:text-darkText dark:bg-darkBg flex justify-center items-center">
       <div className="container h-full ">
         <div className="flex justify-center">
           <form
             onSubmit={handleFormSubmit}
-            className="w-[550px]  p-10 border border-gray-300 dark:bg-slate-900 rounded"
+            className="w-[550px]  p-10 border border-gray-300 dark:bg-darkCardBg rounded"
           >
             <h1 className="text-2xl font-semibold mb-5">Register</h1>
             <input
               type="text"
               name="name"
               placeholder="Full Name"
-              className="w-full placeholder:text-gray-900 mb-5 p-2 border border-gray-300"
+              className="w-full placeholder:text-gray-900 mb-5 p-2 border border-gray-300 dark:text-black"
             />
             <input
               type="text"
               name="photourl"
               placeholder="Enter Photo URL"
-              className="w-full placeholder:text-gray-900 mb-5 p-2 border border-gray-300"
+              className="w-full placeholder:text-gray-900 mb-5 p-2 border border-gray-300 dark:text-black"
             />
             <input
               type="email"
               name="email"
               placeholder="Your Email"
-              className="w-full placeholder:text-gray-900 mb-5 p-2 border border-gray-300"
+              className="w-full placeholder:text-gray-900 mb-5 p-2 border border-gray-300 dark:text-black"
               required
             />
             <input
               type="password"
               name="password"
               placeholder="Password"
-              className="w-full placeholder:text-gray-900 mb-5 p-2  border border-gray-300"
+              className="w-full placeholder:text-gray-900 mb-5 p-2  border border-gray-300 dark:text-black"
               required
             />
             <button

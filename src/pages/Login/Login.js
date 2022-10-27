@@ -53,25 +53,25 @@ const Login = () => {
       .catch((error) => console.log("error", error));
   };
   return (
-    <div className="min-h-[91.5vh] dark:bg-darkBg flex justify-center items-center">
+    <div className="min-h-[91.5vh] dark:text-darkText dark:bg-darkBg  flex justify-center items-center">
       <div className="container h-full ">
         <div className="flex justify-center">
           <form
             onSubmit={handleFormSubmit}
-            className="w-[550px]  p-10 border border-gray-300 dark:bg-slate-900 rounded"
+            className="w-[550px]  p-10 border border-gray-300 dark:bg-darkCardBg rounded"
           >
             <h1 className="text-2xl font-semibold mb-5">Login</h1>
             <input
               type="email"
               name="email"
               placeholder="Your Email"
-              className="w-full placeholder:text-gray-900 p-2 border border-gray-300"
+              className="w-full placeholder:text-gray-900 p-2 border border-gray-300 dark:text-black"
             />
             <input
               type="password"
               name="password"
               placeholder="Password"
-              className="w-full mt-7 placeholder:text-gray-900 p-2  border border-gray-300"
+              className="w-full mt-7 placeholder:text-gray-900 p-2  border border-gray-300 dark:text-black"
             />
             <p className="text-red-500">
               <small>{errors}</small>

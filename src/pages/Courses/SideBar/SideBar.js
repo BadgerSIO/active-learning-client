@@ -18,7 +18,7 @@ const SideBar = () => {
   };
   return (
     <div>
-      <div className="bg-white border border-gray-300 rounded-md p-5 dark:bg-darkCardBg dark:text-white dark:border-0">
+      <div className="bg-white border border-gray-300 rounded-md p-5 dark:bg-darkCardBg dark:text-white dark:border-darkBorder">
         <h1 className="text-xl font-semibold mb-5">Course Categories</h1>
         <ul className="list-disc ml-5 space-y-5 hover:marker:text-blue-500 ">
           <li>

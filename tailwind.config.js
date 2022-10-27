@@ -12,8 +12,10 @@ module.exports = {
     extend: {
       colors: {
         theme: "#0054a5",
-        darkBg: "#151515",
-        darkCardBg: "#202020",
+        darkBg: "#010409",
+        darkCardBg: "#0D1117",
+        darkBorder: "#21262d",
+        darkText: "#c9d1d9",
       },
     },
   },
