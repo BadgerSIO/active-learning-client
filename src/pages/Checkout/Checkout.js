@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const Checkout = () => {
   const course = useLoaderData();
@@ -24,10 +25,10 @@ const Checkout = () => {
     price,
   } = course;
   const { user } = useContext(AuthContext);
-  console.log(course);
+  useTitle("Checkout -");
   return (
     <div className="py-10 min-h-[91.5vh] flex items-center dark:bg-darkBg dark:text-white">
-      <div className="container grid grid-cols-2 gap-10 min-h-full content-center">
+      <div className="container grid md:grid-cols-2 gap-10 min-h-full content-center">
         <div>
           <h1 className="text-5xl font-semibold mb-10">Checkout</h1>
           <form className="w-full p-10 border border-gray-300 dark:bg-darkCardBg dark:border-[#21262d] rounded">

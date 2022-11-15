@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { FaGithub, FaGoogle, FaPaperPlane } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import GoToTop from "../../GoToTop/GoToTop";
+import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
   const { googleSignIn, gitHubSignIn, createuser, updateUser } =
@@ -11,7 +13,7 @@ const Register = () => {
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate();
-
+  useTitle("Register");
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
   const handleFormSubmit = (e) => {
@@ -128,6 +130,7 @@ const Register = () => {
           </form>
         </div>
       </div>
+      <GoToTop />
     </div>
   );
 };

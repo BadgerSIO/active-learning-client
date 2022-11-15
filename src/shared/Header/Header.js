@@ -13,13 +13,15 @@ const Header = ({ handleDarkmode, mode }) => {
       .then(() => {})
       .catch((error) => console.log(error));
   };
+  const notActive = `text-white relative hover:bg-white/10 py-0 hover:backdrop-blur-lg mx-2 font-medium uppercase text-sm`;
+  const Active = `text-blue-400 mx-2 z-50  font-bold uppercase text-sm`;
   return (
     <nav
       className={`min-h-[7vh] ${
         currentLocation === "/" ? "bg-transparent -mb-[15vh]" : "bg-gray-900"
       }`}
     >
-      <div className="navbar bg-base-100 container ">
+      <div className="navbar   bg-base-100 container ">
         <div className="navbar-start z-50">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -42,19 +44,33 @@ const Header = ({ handleDarkmode, mode }) => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3  shadow bg-white rounded-box w-52 z-50"
             >
-              <li className="hover:bg-theme hover:text-white bg-white">
-                <NavLink to="/courses">Courses</NavLink>
+              <li>
+                <NavLink
+                  className="hover:bg-theme hover:text-white bg-white"
+                  to="/courses"
+                >
+                  Courses
+                </NavLink>
               </li>
 
-              <li className="hover:bg-theme hover:text-white bg-white">
-                <NavLink to="/faq">FAQ</NavLink>
+              <li>
+                <NavLink
+                  className="hover:bg-theme hover:text-white bg-white"
+                  to="/faq"
+                >
+                  FAQ
+                </NavLink>
               </li>
-              <li className="hover:bg-theme hover:text-white bg-white">
-                <NavLink to="/blog">Blog</NavLink>
+              <li>
+                <NavLink
+                  className="hover:bg-theme hover:text-white bg-white"
+                  to="/blog"
+                >
+                  Blog
+                </NavLink>
               </li>
               <li>
                 <button onClick={handleDarkmode}>
-                  {" "}
                   {mode ? (
                     <FaSun className="text-white" />
                   ) : (
@@ -70,15 +86,30 @@ const Header = ({ handleDarkmode, mode }) => {
         </div>
         <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
-            <li className="text-white font-medium uppercase text-sm">
-              <NavLink to="/courses">Courses</NavLink>
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? Active : notActive)}
+                to="/courses"
+              >
+                Courses
+              </NavLink>
             </li>
 
-            <li className="text-white font-medium uppercase text-sm">
-              <NavLink to="/">FAQ</NavLink>
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? Active : notActive)}
+                to="/faq"
+              >
+                FAQ
+              </NavLink>
             </li>
-            <li className="text-white font-medium uppercase text-sm">
-              <NavLink to="/blog">Blog</NavLink>
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? Active : notActive)}
+                to="/blog"
+              >
+                Blog
+              </NavLink>
             </li>
             <li>
               <button onClick={handleDarkmode}>

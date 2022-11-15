@@ -11,6 +11,8 @@ import {
 } from "react-icons/fa";
 import { SiSpeedtest } from "react-icons/si";
 import Pdf from "react-to-pdf";
+import useTitle from "../../hooks/useTitle";
+import GoToTop from "../../GoToTop/GoToTop";
 const ref = React.createRef();
 const options = {
   orientation: "landscape",
@@ -36,6 +38,7 @@ const Details = () => {
     descripton,
     overview,
   } = details;
+  useTitle("Details -");
   return (
     <div ref={ref} className="pb-10 dark:bg-darkBg dark:text-darkText">
       <div className="bg-darkCardBg py-10">
@@ -160,6 +163,7 @@ const Details = () => {
           </div>
         </div>
       </div>
+      <GoToTop></GoToTop>
     </div>
   );
 };

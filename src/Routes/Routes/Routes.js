@@ -84,4 +84,8 @@ export const routes = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "*",
+    element: <div>not found</div>,
+  },
 ]);

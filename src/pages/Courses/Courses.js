@@ -1,9 +1,12 @@
 import React from "react";
 import { createContext } from "react";
 import { Outlet, useLoaderData } from "react-router-dom";
+import GoToTop from "../../GoToTop/GoToTop";
+import useTitle from "../../hooks/useTitle";
 import SideBar from "./SideBar/SideBar";
 export const DetailsContext = createContext();
 const Courses = () => {
+  useTitle("Courses -");
   const cdetails = useLoaderData();
   const info = { cdetails };
   return (
@@ -16,6 +19,7 @@ const Courses = () => {
           </div>
         </DetailsContext.Provider>
       </div>
+      <GoToTop />
     </div>
   );
 };

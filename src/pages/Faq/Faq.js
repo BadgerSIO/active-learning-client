@@ -1,11 +1,14 @@
 import React from "react";
+import GoToTop from "../../GoToTop/GoToTop";
+import useTitle from "../../hooks/useTitle";
 
 const Faq = () => {
+  useTitle("Faq -");
   return (
     <div className="pb-10 dark:bg-darkBg">
       <div className="bg-darkCardBg py-10">
         <div className="container">
-          <h1 className="text-2xl text-white font-semibold uppercase">Blog</h1>
+          <h1 className="text-2xl text-white font-semibold uppercase">Faq</h1>
         </div>
       </div>
       <div className="container">
@@ -71,6 +74,7 @@ const Faq = () => {
           </p>
         </div>
       </div>
+      <GoToTop />
     </div>
   );
 };

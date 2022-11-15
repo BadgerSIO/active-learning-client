@@ -5,9 +5,12 @@ import { useContext } from "react";
 import { FaGithub, FaGoogle, FaPaperPlane } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import GoToTop from "../../GoToTop/GoToTop";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
   const [errors, setErrors] = useState("");
+  useTitle("Login");
   const { googleSignIn, gitHubSignIn, loginUser } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -108,6 +111,7 @@ const Login = () => {
           </form>
         </div>
       </div>
+      <GoToTop />
     </div>
   );
 };

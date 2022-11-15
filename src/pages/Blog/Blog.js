@@ -1,15 +1,19 @@
 import React from "react";
+import GoToTop from "../../GoToTop/GoToTop";
+import useTitle from "../../hooks/useTitle";
 
 const Blog = () => {
+  const blogSingle = `p-10 lg:w-3/4 mx-auto border border-gray-300 dark:border-darkBorder dark:text-darkText dark:bg-darkCardBg my-7`;
+  useTitle("Blog -");
   return (
     <div className="pb-10 dark:bg-darkBg">
-      <div className="bg-darkCardBg py-10">
+      <div className="bg-slate-800 py-10">
         <div className="container">
           <h1 className="text-2xl text-white font-semibold uppercase">Blog</h1>
         </div>
       </div>
       <div className="container">
-        <div className=" p-10 lg:w-3/4 mx-auto border border-gray-300 dark:border-darkBorder dark:text-darkText dark:bg-darkCardBg my-7">
+        <div className={blogSingle}>
           <h1 className="text-4xl mb-7 capitalize">what is cors?</h1>
           <p className="text-xl">
             Cross-origin resource sharing is a mechanism that allows restricted
@@ -19,7 +23,7 @@ const Blog = () => {
             videos.
           </p>
         </div>
-        <div className=" p-10 lg:w-3/4 mx-auto border border-gray-300 dark:border-darkBorder dark:text-darkText dark:bg-darkCardBg my-7">
+        <div className={blogSingle}>
           <h1 className="text-4xl mb-7 capitalize">
             Why are you using firebase? What other options do you have to
             implement authentication?
@@ -49,7 +53,7 @@ const Blog = () => {
             </li>
           </ul>
         </div>
-        <div className=" p-10 lg:w-3/4 mx-auto border border-gray-300 dark:border-darkBorder dark:text-darkText dark:bg-darkCardBg my-7">
+        <div className={blogSingle}>
           <h1 className="text-4xl mb-7 capitalize">
             {" "}
             How does the private route work?
@@ -61,7 +65,7 @@ const Blog = () => {
             property.
           </p>
         </div>
-        <div className=" p-10 lg:w-3/4 mx-auto border border-gray-300 dark:border-darkBorder dark:text-darkText dark:bg-darkCardBg my-7">
+        <div className={blogSingle}>
           <h1 className="text-4xl mb-7 capitalize">
             What is Node? How does Node work?
           </h1>
@@ -74,6 +78,7 @@ const Blog = () => {
           </p>
         </div>
       </div>
+      <GoToTop />
     </div>
   );
 };
